@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  backend:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongo
+      - kafka
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data/db:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=password
+      - MONGO_INITDB_DATABASE=mi_proyecto
+
+  kafka:
+    image: wurstmeister/kafka
+    container_name: kafka
+    environment:
+      KAFKA_ADVERTISED_LISTENER: INSIDE://kafka:9093
+      KAFKA_LISTENER_SECURITY_PROTOCOL: PLAINTEXT
+      KAFKA_LISTENER_NAME: INSIDE
+      KAFKA_LISTENER: INSIDE://0.0.0.0:9093
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENER_PORT: 9093
+    ports:
+      - "9093:9093"
+    depends_on:
+      - zookeeper
+
+  zookeeper:
+    image: wurstmeister/zookeeper
+    container_name: zookeeper
+    ports:
+      - "2181:2181"
