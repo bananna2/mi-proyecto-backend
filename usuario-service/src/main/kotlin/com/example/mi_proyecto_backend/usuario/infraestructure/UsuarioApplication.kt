@@ -1,4 +1,4 @@
-package com.example.mi_proyecto_backend.usuario.infrastructure
+package com.example.mi_proyecto_backend.usuario.infraestructure
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

@@ -1,8 +1,10 @@
 package com.example.mi_proyecto_backend.cuenta
 
-import com.example.cuenta.application.command.CuentaCommandService
-import com.example.cuenta.application.query.CuentaQueryService
-import com.example.cuenta.domain.Cuenta
+
+import com.example.mi_proyecto_backend.cuenta.domain.Cuenta
+import com.example.mi_proyecto_backend.cuenta.application.CuentaCommandService
+import com.example.mi_proyecto_backend.cuenta.application.CuentaQueryService
+
 import org.springframework.stereotype.Service
 
 @Service

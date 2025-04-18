@@ -1,7 +1,9 @@
 package com.example.mi_proyecto_backend.cuenta.infraestructure
 
-import com.example.cuenta.application.query.CuentaQueryService
-import com.example.cuenta.domain.Cuenta
+
+import com.example.mi_proyecto_backend.cuenta.domain.Cuenta
+import com.example.mi_proyecto_backend.cuenta.application.CuentaQueryService
+
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 

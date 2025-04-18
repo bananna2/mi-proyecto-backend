@@ -24,6 +24,7 @@ dependencies {
     implementation("org.springframework.kafka:spring-kafka")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
+
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testImplementation("org.springframework.kafka:spring-kafka-test")
@@ -31,10 +32,11 @@ dependencies {
 }
 
 springBoot {
-    mainClass.set("com.example.mi_proyecto_backend.usuario.UsuarioApplication")
+    // Apunta aquí a tu clase con @SpringBootApplication de Cuenta, 
+    // p.ej. si la tienes en com.example.mi_proyecto_backend.cuenta.infrastructure:
+    mainClass.set("com.example.mi_proyecto_backend.cuenta.infrastructure.CuentaApplication")
 }
 
 tasks.withType<Test> {
-    //useJUnitPlatform()
-    enabled = false
+    useJUnitPlatform()
 }

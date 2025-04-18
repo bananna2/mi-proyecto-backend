@@ -1,7 +1,9 @@
-package com.example.mi_proyecto_backend.usuario.infrastructure
+package com.example.mi_proyecto_backend.usuario.infraestructure
 
-import com.example.usuario.application.query.UsuarioQueryService
-import com.example.usuario.domain.Usuario
+
+import com.example.mi_proyecto_backend.usuario.application.UsuarioQueryService
+
+import com.example.mi_proyecto_backend.usuario.domain.Usuario
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
@@ -12,8 +14,8 @@ class UsuarioQueryController(
 ) {
 
     @GetMapping("/{id}")
-    fun obtenerUsuarioPorId(@PathVariable id: String): ResponseEntity<Usuario?> {
-        val usuario = usuarioQueryService.obtenerUsuarioPorId(id)
+    fun obtenerPorId(@PathVariable id: String): ResponseEntity<Usuario?> {
+        val usuario = usuarioQueryService.obtenerPorId(id)
         return ResponseEntity.ok(usuario)
     }
 }

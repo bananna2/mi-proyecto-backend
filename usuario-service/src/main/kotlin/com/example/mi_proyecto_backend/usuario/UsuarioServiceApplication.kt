@@ -1,8 +1,10 @@
 package com.example.mi_proyecto_backend.usuario
 
-import com.example.usuario.application.command.UsuarioCommandService
-import com.example.usuario.application.query.UsuarioQueryService
-import com.example.usuario.domain.Usuario
+
+import com.example.mi_proyecto_backend.usuario.application.UsuarioCommandService
+import com.example.mi_proyecto_backend.usuario.application.UsuarioQueryService
+
+import com.example.mi_proyecto_backend.usuario.domain.Usuario
 import org.springframework.stereotype.Service
 
 @Service

@@ -1,6 +1,7 @@
-package com.example.mi_proyecto_backend.cuenta.infrastructure
+package com.example.mi_proyecto_backend.cuenta.infraestructure
 
-import com.example.cuenta.domain.Cuenta
+
+import com.example.mi_proyecto_backend.cuenta.domain.Cuenta
 import org.springframework.data.mongodb.repository.MongoRepository
 import org.springframework.stereotype.Repository
 

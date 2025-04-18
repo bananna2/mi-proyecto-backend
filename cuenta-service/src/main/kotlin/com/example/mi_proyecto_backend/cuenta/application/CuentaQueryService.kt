@@ -1,7 +1,10 @@
 package com.example.mi_proyecto_backend.cuenta.application
 
-import com.example.cuenta.domain.Cuenta
-import com.example.cuenta.infrastructure.repository.CuentaQueryRepository
+
+
+import com.example.mi_proyecto_backend.cuenta.domain.Cuenta
+import com.example.mi_proyecto_backend.cuenta.infraestructure.CuentaQueryRepository
+
 import org.springframework.stereotype.Service
 
 @Service

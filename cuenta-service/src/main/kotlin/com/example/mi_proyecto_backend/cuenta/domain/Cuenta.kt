@@ -1,4 +1,5 @@
 package com.example.mi_proyecto_backend.cuenta.domain
+
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
 

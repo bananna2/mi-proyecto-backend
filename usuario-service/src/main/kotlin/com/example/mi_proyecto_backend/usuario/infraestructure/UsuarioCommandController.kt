@@ -1,7 +1,8 @@
-package com.example.mi_proyecto_backend.usuario.infrastructure
+package com.example.mi_proyecto_backend.usuario.infraestructure
 
-import com.example.usuario.application.command.UsuarioCommandService
-import com.example.usuario.domain.Usuario
+import com.example.mi_proyecto_backend.usuario.application.UsuarioCommandService
+
+import com.example.mi_proyecto_backend.usuario.domain.Usuario
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
