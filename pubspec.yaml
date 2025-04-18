@@ -1,0 +1,19 @@
+name: mi_proyecto_flutter
+description: Una nueva aplicación Flutter
+
+publish_to: 'none' # Si no deseas publicarlo en un repositorio.
+
+environment:
+  sdk: '^3.7.0'  # Esta línea es importante para definir el SDK de Dart
+
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^0.13.3  # Esta es la dependencia para hacer solicitudes HTTP  
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true

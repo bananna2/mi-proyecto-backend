@@ -10,6 +10,8 @@ services:
       - kafka
     environment:
       - SPRING_PROFILES_ACTIVE=docker
+    command: ["wait-for-it", "mongo:27017", "--", "java", "-jar", "/app/mi_proyecto_backend-0.0.1-SNAPSHOT.jar"]
+
 
   mongo:
     image: mongo:latest
@@ -26,15 +28,13 @@ services:
   kafka:
     image: wurstmeister/kafka
     container_name: kafka
-    environment:
-      KAFKA_ADVERTISED_LISTENER: INSIDE://kafka:9093
-      KAFKA_LISTENER_SECURITY_PROTOCOL: PLAINTEXT
-      KAFKA_LISTENER_NAME: INSIDE
-      KAFKA_LISTENER: INSIDE://0.0.0.0:9093
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_LISTENER_PORT: 9093
     ports:
       - "9093:9093"
+    environment:
+      - KAFKA_BROKER_ID=1
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://localhost:9093
+      - KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9093
     depends_on:
       - zookeeper
 
