@@ -20,7 +20,7 @@ class UsuarioQueryController(
     }
 
     @GetMapping("/all")
-    fun obtenerTodosLosUsuarios(): ResponseEntity<List<Usuario>> {
+    fun obtenerTodosLosUsuarios(): ResponseEntity<List<Usuario>> { //get all
         val usuarios = usuarioQueryService.obtenerTodos()
         return ResponseEntity.ok(usuarios)
     }
