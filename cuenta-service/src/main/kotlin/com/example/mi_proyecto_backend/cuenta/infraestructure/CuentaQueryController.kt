@@ -19,7 +19,7 @@ class CuentaQueryController(
         return ResponseEntity.ok(cuenta)
     }
 
-    @GetMapping
+    @GetMapping("/all")
     fun obtenerTodasLasCuentas(): ResponseEntity<List<Cuenta>> {
         val cuentas = cuentaQueryService.obtenerTodas()
         return ResponseEntity.ok(cuentas)

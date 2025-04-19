@@ -34,7 +34,7 @@ dependencies {
 springBoot {
     // Apunta aquí a tu clase con @SpringBootApplication de Cuenta, 
     // p.ej. si la tienes en com.example.mi_proyecto_backend.cuenta.infrastructure:
-    mainClass.set("com.example.mi_proyecto_backend.cuenta.infrastructure.CuentaApplication")
+    mainClass.set("com.example.mi_proyecto_backend.cuenta.CuentaApplication")
 }
 
 tasks.withType<Test> {

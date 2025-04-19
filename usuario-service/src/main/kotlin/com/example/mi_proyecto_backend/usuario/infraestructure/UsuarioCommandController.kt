@@ -17,4 +17,20 @@ class UsuarioCommandController(
         val nuevoUsuario = usuarioCommandService.crearUsuario(usuario)
         return ResponseEntity.ok(nuevoUsuario)
     }
+
+    @PutMapping("/{id}")
+    fun actualizarUsuario(
+        @PathVariable id: String,
+        @RequestBody usuario: Usuario
+    ): ResponseEntity<Usuario> {
+        // Asegúrate de que el campo id del JSON coincide con el PathVariable
+        val actualizado = usuarioCommandService.actualizarUsuario(usuario.copy(id = id))
+        return ResponseEntity.ok(actualizado)
+    }
+
+    @DeleteMapping("/{id}")
+    fun eliminarUsuario(@PathVariable id: String): ResponseEntity<Void> {
+        usuarioCommandService.eliminarUsuario(id)
+        return ResponseEntity.noContent().build()
+    }
 }
