@@ -53,4 +53,11 @@ class CuentaEventProducer(
             logger.error("Error al enviar evento al topic {}: {}", topic, ex.message)
         }
     }
+
+    fun enviarCuentasEliminadasPorUsuario(usuarioId: String) {
+        val event = CuentasEliminadasPorUsuarioEvent(
+            usuarioId = usuarioId
+        )
+        enviarEvento("cuentas-eliminadas-por-usuario", usuarioId, event)
+    }
 }

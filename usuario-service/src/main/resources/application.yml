@@ -1,0 +1,22 @@
+spring:
+  kafka:
+    bootstrap-servers: kafka:9092
+
+    # ─── PRODUCER JSON (añade __TypeId__) ────────────────────────
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        # Inyecta __TypeId__: fully‐qualified‐class‐name
+        spring.json.add.type.headers: true
+        # Confía en tu paquete de eventos
+        spring.json.trusted.packages: "com.example.mi_proyecto_backend.usuario.domain.events"
+
+    # ─── CONSUMER JSON ────────────────────────────────────────────
+    consumer:
+      group-id: usuario-service-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "com.example.mi_proyecto_backend.usuario.domain.events"

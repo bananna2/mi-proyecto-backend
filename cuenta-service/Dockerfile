@@ -6,4 +6,4 @@ WORKDIR /app
 COPY build/libs/cuenta-service-0.0.1-SNAPSHOT.jar ./cuenta-service-0.0.1-SNAPSHOT.jar
 
 EXPOSE 8081
-ENTRYPOINT ["java","-jar","/app/cuenta-service.jar"]
+ENTRYPOINT ["java","-jar","cuenta-service-0.0.1-SNAPSHOT.jar"]

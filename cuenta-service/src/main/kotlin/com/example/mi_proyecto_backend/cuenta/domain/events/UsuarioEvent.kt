@@ -1,4 +1,4 @@
-package com.example.mi_proyecto_backend.usuario.domain.events
+package com.example.mi_proyecto_backend.cuenta.domain.events
 
 import java.time.LocalDateTime
 

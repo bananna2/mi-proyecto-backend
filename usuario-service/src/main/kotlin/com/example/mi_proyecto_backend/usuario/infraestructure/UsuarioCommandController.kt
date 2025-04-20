@@ -1,10 +1,10 @@
 package com.example.mi_proyecto_backend.usuario.infraestructure
 
 import com.example.mi_proyecto_backend.usuario.application.UsuarioCommandService
-
 import com.example.mi_proyecto_backend.usuario.domain.Usuario
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+import java.util.*
 
 @RestController
 @RequestMapping("/api/usuarios")
@@ -21,10 +21,9 @@ class UsuarioCommandController(
     @PutMapping("/{id}")
     fun actualizarUsuario(
         @PathVariable id: String,
-        @RequestBody usuario: Usuario
+        @RequestBody cambios: Map<String, Any> // Cambiado de Usuario a Map
     ): ResponseEntity<Usuario> {
-        // Asegúrate de que el campo id del JSON coincide con el PathVariable
-        val actualizado = usuarioCommandService.actualizarUsuario(usuario.copy(id = id))
+        val actualizado = usuarioCommandService.actualizarUsuario(id, cambios)
         return ResponseEntity.ok(actualizado)
     }
 

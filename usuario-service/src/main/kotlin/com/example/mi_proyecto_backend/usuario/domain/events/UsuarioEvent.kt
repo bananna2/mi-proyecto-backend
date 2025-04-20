@@ -2,20 +2,25 @@ package com.example.mi_proyecto_backend.usuario.domain.events
 
 import java.time.LocalDateTime
 
+sealed class UsuarioEvent {
+    abstract val id: String
+    abstract val fecha: LocalDateTime
+}
+
 data class UsuarioCreadoEvent(
-    val id: String,
+    override val id: String,
     val nombre: String,
     val email: String,
-    val fechaCreacion: LocalDateTime = LocalDateTime.now()
-)
+    override val fecha: LocalDateTime = LocalDateTime.now()
+) : UsuarioEvent()
 
 data class UsuarioActualizadoEvent(
-    val id: String,
+    override val id: String,
     val cambios: Map<String, Any>,
-    val fechaActualizacion: LocalDateTime = LocalDateTime.now()
-)
+    override val fecha: LocalDateTime = LocalDateTime.now()
+) : UsuarioEvent()
 
 data class UsuarioEliminadoEvent(
-    val id: String,
-    val fechaEliminacion: LocalDateTime = LocalDateTime.now()
-)
+    override val id: String,
+    override val fecha: LocalDateTime = LocalDateTime.now()
+) : UsuarioEvent()

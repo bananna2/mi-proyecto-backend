@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
   usuario:
@@ -11,9 +11,9 @@ services:
       - mongo
       - kafka
     environment:
-      SPRING_PROFILES_ACTIVE: docker
-      SPRING_DATA_MONGODB_URI: mongodb://root:password@mongo:27017/mi_proyecto?authSource=admin
-      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      SPRING_PROFILES_ACTIVE: "docker"
+      SPRING_DATA_MONGODB_URI: "mongodb://root:password@mongo:27017/mi_proyecto?authSource=admin"
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: "kafka:9092"
 
   cuenta:
     build:
@@ -25,9 +25,17 @@ services:
       - mongo
       - kafka
     environment:
-      SPRING_PROFILES_ACTIVE: docker
-      SPRING_DATA_MONGODB_URI: mongodb://root:password@mongo:27017/mi_proyecto?authSource=admin
-      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      SPRING_PROFILES_ACTIVE: "docker"
+      SPRING_DATA_MONGODB_URI: "mongodb://root:password@mongo:27017/mi_proyecto?authSource=admin"
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: "kafka:9092"
+      # Aquí el JSON debe ir como un valor, no como clave:
+      SPRING_APPLICATION_JSON: >-
+        {"spring":{
+           "main":{"banner-mode":"off"},
+           "logging":{"level":{"org.springframework.core.env":"DEBUG"}}
+        }}
+    # Reemplaza ENTRYPOINT si tu Dockerfile ya lo define
+    command: ["java","-jar","/app/app.jar","--debug"]
 
   mongo:
     image: mongo:latest

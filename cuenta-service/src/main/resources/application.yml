@@ -1,0 +1,11 @@
+spring:
+  kafka:
+    bootstrap-servers: kafka:9092           # mismo broker que uso en cuenta
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        # fuerza a incluir el tipo en headers
+        spring.json.add.type.headers: true
+        # confía en tu paquete de eventos
+        spring.json.trusted.packages: "com.example.mi_proyecto_backend.cuenta.domain.events"

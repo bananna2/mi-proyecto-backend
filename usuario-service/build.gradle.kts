@@ -18,35 +18,36 @@ repositories {
     mavenCentral()
 }
 
+repositories {
+    mavenCentral()
+    jcenter()
+
+}
+
 dependencies {
-    // Spring Boot Básico
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
     implementation("org.springframework.kafka:spring-kafka")
-
-    // Kotlin
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-    implementation("org.jetbrains.kotlin:kotlin-reflect")
-
-    // Testing
+    implementation("org.jetbrains.kotlin:kotlin-reflect") // Ajusta la versión según la que necesites
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testImplementation("org.springframework.kafka:spring-kafka-test")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    implementation("org.springframework.boot:spring-boot-starter-logging")  // Para logging con SLF4J
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")  // Kotlin standard library
+
+
+
 }
 
-// Configuración específica para Spring Boot
 springBoot {
+    // Apunta aquí a tu clase con @SpringBootApplication de Cuenta,
+    // p.ej. si la tienes en com.example.mi_proyecto_backend.cuenta.infrastructure:
     mainClass.set("com.example.mi_proyecto_backend.usuario.UsuarioApplication")
+    // Si tienes un archivo de configuración específico, puedes especificarlo aquí
 }
 
 tasks.withType<Test> {
     useJUnitPlatform()
-}
-
-// Configuración para el JAR
-tasks.bootJar {
-    archiveFileName.set("usuario-service.jar")
-}
-
-tasks.build {
-    dependsOn(tasks.bootJar)
 }

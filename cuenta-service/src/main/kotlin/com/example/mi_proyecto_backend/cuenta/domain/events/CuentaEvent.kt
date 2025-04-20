@@ -24,3 +24,8 @@ data class CuentaEliminadaEvent(
     val usuarioId: String,
     val fechaEliminacion: LocalDateTime = LocalDateTime.now()
 )
+
+data class CuentasEliminadasPorUsuarioEvent(
+    val usuarioId: String,
+    val fechaEliminacion: LocalDateTime = LocalDateTime.now()
+)

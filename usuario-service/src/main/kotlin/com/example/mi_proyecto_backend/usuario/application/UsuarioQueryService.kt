@@ -16,4 +16,8 @@ class UsuarioQueryService(
     fun obtenerTodos(): List<Usuario> {
         return usuarioQueryRepository.findAll()
     }
+
+    fun existeUsuario(id: String): Boolean {
+       return usuarioQueryRepository.existsById(id)
+    }
 }

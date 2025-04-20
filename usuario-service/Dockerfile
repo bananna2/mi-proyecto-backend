@@ -3,7 +3,7 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # Copia el JAR generado para el módulo usuario
-COPY build/libs/usuario-service.jar ./usuario-service.jar
+COPY build/libs/usuario-service-0.0.1-SNAPSHOT.jar ./usuario-service-0.0.1-SNAPSHOT.jar
 
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","/app/usuario-service.jar"]
+ENTRYPOINT ["java","-jar","usuario-service-0.0.1-SNAPSHOT.jar"]

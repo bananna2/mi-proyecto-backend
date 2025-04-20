@@ -16,6 +16,8 @@ java {
 
 repositories {
     mavenCentral()
+    jcenter()
+
 }
 
 dependencies {
@@ -23,18 +25,23 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
     implementation("org.springframework.kafka:spring-kafka")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-    implementation("org.jetbrains.kotlin:kotlin-reflect")
-
+    implementation("org.jetbrains.kotlin:kotlin-reflect") // Ajusta la versión según la que necesites
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testImplementation("org.springframework.kafka:spring-kafka-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    implementation("org.springframework.boot:spring-boot-starter-logging")  // Para logging con SLF4J
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")  // Kotlin standard library
+
+
+
 }
 
 springBoot {
     // Apunta aquí a tu clase con @SpringBootApplication de Cuenta, 
     // p.ej. si la tienes en com.example.mi_proyecto_backend.cuenta.infrastructure:
     mainClass.set("com.example.mi_proyecto_backend.cuenta.CuentaApplication")
+    // Si tienes un archivo de configuración específico, puedes especificarlo aquí
 }
 
 tasks.withType<Test> {

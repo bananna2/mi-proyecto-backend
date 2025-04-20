@@ -26,4 +26,10 @@ class CuentaCommandService(
         cuentaCommandRepository.deleteById(id)
         cuentaEventProducer.enviarCuentaEliminada(id)
     }
+
+    fun eliminarCuentasPorUsuario(idUsuario: String) {
+        cuentaCommandRepository.deleteByUsuarioId(idUsuario)
+        cuentaEventProducer.enviarCuentasEliminadasPorUsuario(idUsuario)
+    }
+
 }
