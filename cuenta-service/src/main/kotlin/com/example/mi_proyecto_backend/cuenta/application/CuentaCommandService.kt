@@ -1,7 +1,6 @@
 package com.example.mi_proyecto_backend.cuenta.application
 
 import com.example.mi_proyecto_backend.cuenta.domain.Cuenta
-import com.example.mi_proyecto_backend.cuenta.domain.events.CuentaEvent
 import com.example.mi_proyecto_backend.cuenta.infraestructure.messaging.CuentaEventProducer
 import com.example.mi_proyecto_backend.cuenta.infraestructure.CuentaCommandRepository
 import org.springframework.stereotype.Service

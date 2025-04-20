@@ -1,6 +1,6 @@
 package com.example.mi_proyecto_backend
 
-import com.example.mi_proyecto_backend.usuario.infraestructure.UsuarioApplication
+import com.example.mi_proyecto_backend.usuario.UsuarioApplication
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 
